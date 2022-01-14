@@ -10,9 +10,11 @@ const showResult = (queryResponse) => {
     afspraakJson[i] += `${queryResponse[i].afspraakId}`;
     console.log(afspraakJson[i].substring(9));
   }
+  afspraakJson[queryResponse.length] += '1234587654326453';
   console.log(afspraakJson);
   var randomCode = afspraakJson[Math.floor(Math.random() * afspraakJson.length)];
   qrcode(randomCode.substring(9));
+  test(randomCode.substring(9));
 };
 
 const get = (url) => fetch(url).then((r) => r.json());
@@ -37,27 +39,29 @@ const qrcode = (code) => {
   });
 };
 
-if (randomCode == '123456789') {
-  console.log('wrong ID');
+const test = (code) => {
+  if (code == '1234587654326453') {
+    console.log('wrong ID');
 
-  let pagina = document.getElementById('pagina');
-  pagina.classList.add('js-temp-click');
+    let pagina = document.getElementById('pagina');
+    pagina.classList.add('js-temp-click');
 
-  let nextpage = document.querySelector('.js-temp-click');
-  nextpage.addEventListener('click', function () {
-    window.location.href = 'error.html';
-  });
-} else {
-  console.log('Good ID');
+    let nextpage = document.querySelector('.js-temp-click');
+    nextpage.addEventListener('click', function () {
+      window.location.href = 'error.html';
+    });
+  } else {
+    console.log('Good ID');
 
-  let pagina = document.getElementById('pagina');
-  pagina.classList.add('js-temp-click');
+    let pagina = document.getElementById('pagina');
+    pagina.classList.add('js-temp-click');
 
-  let nextpage = document.querySelector('.js-temp-click');
-  nextpage.addEventListener('click', function () {
-    window.location.href = 'omkleden.html';
-  });
-}
+    let nextpage = document.querySelector('.js-temp-click');
+    nextpage.addEventListener('click', function () {
+      window.location.href = 'omkleden.html';
+    });
+  }
+};
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log('DOM geladen');
