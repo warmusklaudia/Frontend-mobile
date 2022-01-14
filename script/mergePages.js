@@ -11,21 +11,26 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".js-text").textContent = 'Volg Temi...';
 
         // onderstaande tijdelijk om te testen
-        function volgendePagina() {
+        let pagina = document.getElementById("pagina")
+        pagina.classList.add("js-temp-click")
+
+        let indexpage = document.querySelector(".js-temp-click")
+        indexpage.addEventListener("click", function() {
             window.location.replace("gearriveerd.html");
-        }
-        setTimeout(volgendePagina, 2000);
+        })
     } else if (pagina == "onderweg")
     {
-        document.querySelector(".js-text").textContent = 'Roep Temi!';
+        document.querySelector(".js-text").textContent = 'Temi is onderweg...';
 
-        function volgendePagina() {
+        let pagina = document.getElementById("pagina")
+        pagina.classList.add("js-temp-click")
+
+        let indexpage = document.querySelector(".js-temp-click")
+        indexpage.addEventListener("click", function() {
             window.location.replace("locaties.html");
-        }
-        setTimeout(volgendePagina, 2000);
+        })
     } else if (pagina == "help_onderweg")
     {
-        console.log("test 2520")
         document.querySelector(".js-text").textContent = 'Er komt zo dadelijk iemand van het onthaal bij u...';
         
         let pagina = document.getElementById("pagina")
