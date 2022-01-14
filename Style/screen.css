@@ -1,0 +1,277 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+
+@font-face {
+  font-family: 'Avenir LT Std';
+  font-weight: normal;
+  src: url('../fonts/AvenirLTStd-Roman.woff2') format('woff2');
+}
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+  /* colors */
+  --color-green: #22ce99;
+  --color-black: #111111;
+  --color-grey: #282829;
+
+  /* forms */
+  --global-text-color: var(--color-grey);
+  --global-button-color: var(--color-green);
+  --global-button-text-color: var(--color-black);
+  --global-image-color: var(--color-green);
+
+  /* border radius */
+  --global-borderRadius: var(--global-whitespace-xl);
+  --global-borderWidth: 1px;
+
+  /* Baseline settings */
+  --global-baseline: 8px;
+  --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
+
+  --global-whitespace-xs: calc(var(--global-baseline) * 0.5); /* = 4px */
+  --global-whitespace-sm: calc(var(--global-baseline) * 1); /*  = 8px */
+  --global-whitespace-md: calc(var(--global-baseline) * 2); /*  = 16px */
+  --global-whitespace-m: calc(var(--global-baseline) * 3); /*  = 24px */
+  --global-whitespace-lg: calc(var(--global-baseline) * 4); /*  = 32px */
+  --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
+  --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+  /* POSITIONING */
+
+  /* BOX MODEL */
+  box-sizing: border-box;
+
+  /* FONT */
+  color: var(--global-text-color);
+  font-size: 100%;
+  line-height: 1.5;
+  font-family: 'Avenir LT Std', 'Open Sans', Helvetica, arial, sans-serif;
+  font-feature-settings: 'zero' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin: 0 0 var(--global-whitespace-m);
+}
+
+h2 {
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 2.5rem;
+  margin: 0 0 var(--global-whitespace-m);
+}
+
+h3 {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  margin: 0 0 var(--global-whitespace-m);
+}
+
+a {
+  color: var(--global-text-color);
+  text-decoration: none;
+}
+
+p {
+  color: var(--global-text-color);
+}
+
+select {
+  width: 100%;
+}
+
+.o-row {
+  position: relative;
+  padding: var(--global-whitespace-md) var(--global-whitespace-md) var(--global-baseline);
+}
+
+.c-app {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 2 * 1rem);
+  box-sizing: content-box;
+  max-width: 25rem;
+  margin: 0 auto;
+  padding: 0 2rem 2rem 2rem; /* 32px 32px (in onze huidige font-size) */
+}
+
+.c-nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  line-height: 1rem;
+}
+
+.c-logo {
+  padding-left: var(--global-baseline);
+}
+
+.c-help {
+  padding-right: var(--global-baseline);
+  padding-left: var(--global-whitespace-xxl);
+  width: 2.5rem;
+}
+
+.c-page {
+  display: block;
+  align-items: center;
+  padding-top: var(--global-whitespace-xxl);
+}
+
+.c-robot {
+  display: block;
+  fill: var(--global-image-color);
+  margin: auto;
+  max-height: 17.5rem;
+}
+
+.c-robot__shadow {
+  --color-shadow: var(--color-black);
+  fill: var(--color-shadow);
+  opacity: 0.1;
+}
+
+.c-robot__admin {
+  --color-robot: var(--color-green);
+  margin: auto;
+  max-width: 18.7rem;
+  fill: var(--color-robot);
+}
+
+@media (min-height: 35.6rem) {
+  .c-robot {
+    max-height: 22.5rem;
+  }
+}
+
+@media (min-height: 41.8rem) {
+  .c-robot {
+    max-height: 25rem;
+  }
+
+  .c-robot__admin {
+    max-width: 21.8rem;
+  }
+}
+
+.c-qrcode {
+  display: flex;
+  justify-content: center;
+  margin-top: calc(var(--global-whitespace-lg) * 2);
+}
+
+.c-button-flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.c-button {
+  margin-top: var(--global-whitespace-m);
+  font-size: 2rem;
+  border-radius: var(--global-borderRadius);
+  border: none;
+  background-color: var(--global-button-color);
+  color: var(--global-button-text-color);
+  min-width: 17rem;
+  min-height: 4rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.c-bottommargin {
+  margin-bottom: var(--global-whitespace-xxl);
+}
+
+.c-done {
+  display: block;
+  margin: auto;
+  fill: var(--global-image-color);
+}
+
+.c-error {
+  display: block;
+  margin: auto;
+  width: 15rem;
+  height: 15rem;
+}
+
+.c-call {
+  font-size: 2rem;
+  border-radius: var(--global-borderRadius);
+  border: none;
+  background-color: var(--global-button-color);
+  color: var(--global-button-text-color);
+  min-width: 15rem;
+  min-height: 7rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.c-message {
+  max-width: 12rem;
+  padding: var(--global-whitespace-sm);
+  font-size: 1.2rem;
+  margin: auto;
+  text-align: center;
+}
+
+.c-map {
+  margin: var(--global-whitespace-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-height: 41.8rem) {
+  .c-message {
+    max-width: 30rem;
+    font-size: 2rem;
+  }
+}
