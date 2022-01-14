@@ -1,12 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Dom is geloaden")
-
-    // 1. classe toevoegen aan index pagina 
-    // 2. classe opvragen
-    // 3. evenlistener eraan koppellen
-    // 4. 
-    // als in de js-index-page bestaat dan voer de volgende code uit
-
     const params = new URLSearchParams(window.location.search)
     pagina = params.get("pagina")
 
@@ -34,11 +27,21 @@ document.addEventListener("DOMContentLoaded", function () {
     {
         console.log("test 2520")
         document.querySelector(".js-text").textContent = 'Er komt zo dadelijk iemand van het onthaal bij u...';
+        
+        let pagina = document.getElementById("pagina")
+        pagina.classList.add("js-temp-click")
 
-        // function volgendePagina() {
-        //     window.location.replace("index.html/pagina=help_onderweg");
-        //     console.log("testing which page this displays on")
-        // }
-        // setTimeout(volgendePagina, 2000);
+        let indexpage = document.querySelector(".js-temp-click")
+        indexpage.addEventListener("click", function() {
+            window.location.replace("index.html");
+        })
+    } else {
+        let pagina = document.getElementById("pagina")
+        pagina.classList.add("js-temp-click")
+
+        let indexpage = document.querySelector(".js-temp-click")
+        indexpage.addEventListener("click", function() {
+            window.location.replace("qr-code.html");
+        })  
     }
 })
