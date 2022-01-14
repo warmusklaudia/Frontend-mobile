@@ -16,6 +16,28 @@ const qrcode = (code) => {
   });
 };
 
+if (randomCode == "123456789"){
+  console.log("wrong ID")
+
+  let pagina = document.getElementById("pagina")
+  pagina.classList.add("js-temp-click")
+
+  let nextpage = document.querySelector(".js-temp-click")
+  nextpage.addEventListener("click", function() {
+    window.location.href = "error.html";
+  })  
+} else {
+  console.log("Good ID") 
+  
+  let pagina = document.getElementById("pagina")
+  pagina.classList.add("js-temp-click")
+
+  let nextpage = document.querySelector(".js-temp-click")
+  nextpage.addEventListener("click", function() {
+    window.location.href = "omkleden.html";
+  })  
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   console.log('DOM geladen');
   qrcode(randomCode);
