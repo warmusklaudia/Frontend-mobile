@@ -12,10 +12,11 @@ const listenToButtons = async () => {
     changeLocation(code, json);
     console.log(json);
     // voorlopig een sleep function
-    sleep(5000).then(() => {
+    sleep(1500).then(() => {
       json = { locatie: 'kleedkamer' };
       changeLocation(code, json);
       console.log(json);
+      window.location.href = 'index.html?pagina=volgen';
     });
   });
   btnSportscube.addEventListener('click', () => {
@@ -23,10 +24,11 @@ const listenToButtons = async () => {
     changeLocation(code, json);
     console.log(json);
     // voorlopig een sleep function
-    sleep(5000).then(() => {
+    sleep(1500).then(() => {
       json = { locatie: 'sportscube' };
       changeLocation(code, json);
       console.log(json);
+      window.location.href = 'index.html?pagina=volgen';
     });
   });
 };
