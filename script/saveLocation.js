@@ -1,6 +1,6 @@
 let btnKleedkamer, btnSportscube;
 let json;
-let code = 'af1b5fdd-3293-4f4c-bb38-a1890c882512';
+let code = '61d5026a-ac5c-442d-90f3-93835e49c89b';
 let response;
 
 const listenToButtons = async () => {
