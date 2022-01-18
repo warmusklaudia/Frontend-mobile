@@ -3,6 +3,19 @@ let json;
 let code = 'af1b5fdd-3293-4f4c-bb38-a1890c882512';
 let response;
 
+const options = {
+  keepalive: 60,
+  clean: true,
+  rejectUnauthorized: false,
+  checkServerIdentity: false
+}
+
+const client = mqtt.connect("mqtt://13.81.105.139", options);
+
+client.on("connect", function(){
+  console.log("Connected to mqtt")
+})
+
 const listenToButtons = async () => {
   let bezoekersData = await getVisitorData(code);
   console.log(bezoekersData);
@@ -11,6 +24,7 @@ const listenToButtons = async () => {
     json = { locatie: 'onderweg naar kleedkamer' };
     changeLocation(code, json);
     console.log(json);
+
     // voorlopig een sleep function
     sleep(1500).then(() => {
       json = { locatie: 'kleedkamer' };
@@ -23,6 +37,7 @@ const listenToButtons = async () => {
     json = { locatie: 'onderweg naar sportscube' };
     changeLocation(code, json);
     console.log(json);
+
     // voorlopig een sleep function
     sleep(1500).then(() => {
       json = { locatie: 'sportscube' };
@@ -54,6 +69,8 @@ const changeLocation = (id, jsonObject) => {
     .then((response) => response.json())
     .then((data) => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
     .catch((err) => console.log(err)); // Do something with the error
+
+  client.publish("F2B/locatie", JSON.stringify(json));
 };
 
 const get = (url) => fetch(url).then((r) => r.json());
