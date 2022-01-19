@@ -258,6 +258,7 @@ select {
 
 .c-button:active {
   background-color: var(--global-button-color-active);
+}
 .c-button-hulp {
   width: 100%;
   justify-content: flex-end;
