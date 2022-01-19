@@ -58,7 +58,7 @@ const test = (code) => {
 
     let nextpage = document.querySelector('.js-temp-click');
     nextpage.addEventListener('click', function () {
-      window.location.href = 'omkleden.html';
+      window.location.href = `omkleden.html?afspraakId=${code}`;
     });
   }
 };
