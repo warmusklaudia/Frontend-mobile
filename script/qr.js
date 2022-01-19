@@ -10,10 +10,11 @@ const showResult = (queryResponse) => {
     afspraakJson[i] += `${queryResponse[i].afspraakId}`;
     console.log(afspraakJson[i].substring(9));
   }
+  afspraakJson[queryResponse.length] += '1234587654326453';
   console.log(afspraakJson);
   var randomCode = afspraakJson[Math.floor(Math.random() * afspraakJson.length)];
   qrcode(randomCode.substring(9));
-  checkValidity(randomCode.substring(9));
+  test(randomCode.substring(9));
 };
 
 const get = (url) => fetch(url).then((r) => r.json());
@@ -38,8 +39,8 @@ const qrcode = (code) => {
   });
 };
 
-const checkValidity = (code) => {
-  if (code == '123456789') {
+const test = (code) => {
+  if (code == '1234587654326453') {
     console.log('wrong ID');
 
     let pagina = document.getElementById('pagina');
