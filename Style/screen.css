@@ -19,7 +19,6 @@
   --color-green-dark: #25af85;
   --color-black: #111111;
   --color-grey: #282829;
-<<<<<<< HEAD
   --global-color-green-x-transparent: #22ce994d;
 
   /* Global colors */
@@ -28,9 +27,7 @@
   --global-color-neutral-x-light: #b5b6c0;
   --global-color-error: #ff3333;
   --global-color-error-x-transparent: #ff33334d;
-=======
   --color-grey-green: #b2c6c0;
->>>>>>> a569b5ae580037bfb41006279c423cbd771a3a2c
 
   /* forms */
   --global-text-color: var(--color-grey);
@@ -292,15 +289,12 @@ select {
 
 .c-button:active {
   background-color: var(--global-button-color-active);
-<<<<<<< HEAD
-=======
 }
 .c-button:disabled {
   background-color: var(--global-disabled-button-color);
   cursor: auto;
 }
 
->>>>>>> a569b5ae580037bfb41006279c423cbd771a3a2c
 .c-button-hulp {
   width: 100%;
   justify-content: flex-end;
