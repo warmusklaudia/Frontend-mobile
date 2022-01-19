@@ -19,6 +19,7 @@
   --color-green-dark: #25af85;
   --color-black: #111111;
   --color-grey: #282829;
+  --color-grey-green: #b2c6c0;
 
   /* forms */
   --global-text-color: var(--color-grey);
@@ -27,6 +28,8 @@
   --global-image-color: var(--color-green);
   --global-button-color-hover: var(--color-green-light);
   --global-button-color-active: var(--color-green-dark);
+
+  --global-disabled-button-color: var(--color-grey-green);
 
   /* border radius */
   --global-borderRadius: var(--global-whitespace-xl);
@@ -259,6 +262,11 @@ select {
 .c-button:active {
   background-color: var(--global-button-color-active);
 }
+.c-button:disabled {
+  background-color: var(--global-disabled-button-color);
+  cursor: auto;
+}
+
 .c-button-hulp {
   width: 100%;
   justify-content: flex-end;
