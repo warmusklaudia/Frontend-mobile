@@ -15,6 +15,8 @@
 :root {
   /* colors */
   --color-green: #22ce99;
+  --color-green-light: #6cd1b2;
+  --color-green-dark: #25af85;
   --color-black: #111111;
   --color-grey: #282829;
 
@@ -23,6 +25,8 @@
   --global-button-color: var(--color-green);
   --global-button-text-color: var(--color-black);
   --global-image-color: var(--color-green);
+  --global-button-color-hover: var(--color-green-light);
+  --global-button-color-active: var(--color-green-dark);
 
   /* border radius */
   --global-borderRadius: var(--global-whitespace-xl);
@@ -223,6 +227,14 @@ select {
   min-height: 4rem;
   outline: none;
   cursor: pointer;
+}
+
+.c-button:hover {
+  background-color: var(--global-button-color-hover);
+}
+
+.c-button:active {
+  background-color: var(--global-button-color-active);
 }
 
 .c-bottommargin {
