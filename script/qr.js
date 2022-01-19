@@ -20,7 +20,7 @@ const showResult = (queryResponse) => {
 //const get = (url) => fetch(url).then((r) => r.json());
 
 const getAfspraken = async () => {
-  const endPoint = `https://bezoekersapi.azurewebsites.net/api/afspraken`;
+  const endPoint = 'https://bezoekersapi.azurewebsites.net/api/afspraken';
   const response = await get(endPoint);
   console.log({ response });
   showResult(response);
