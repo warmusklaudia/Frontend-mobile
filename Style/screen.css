@@ -131,6 +131,29 @@ select {
   padding: var(--global-whitespace-md) var(--global-whitespace-md) var(--global-baseline);
 }
 
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
 .c-app {
   display: flex;
   flex-direction: column;
@@ -222,6 +245,12 @@ select {
   min-width: 17rem;
   min-height: 4rem;
   outline: none;
+  cursor: pointer;
+}
+
+.c-button-hulp {
+  width: 100%;
+  justify-content: flex-end;
   cursor: pointer;
 }
 
