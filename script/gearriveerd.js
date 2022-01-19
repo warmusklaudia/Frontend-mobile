@@ -1,4 +1,10 @@
-let btnKleedkamer, btnSportscube, afspraakId;
+let btnKleedkamer, btnSportscube, afspraakId, btnHulp;
+
+const listenToButton = () => {
+  btnHulp.addEventListener('click', () => {
+    window.location.href = `help_bevestigen.html?afspraakId=${afspraakId}`;
+  });
+};
 
 const options = {
   keepalive: 60,
@@ -21,8 +27,10 @@ const setTime = () => {
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log('DOMContent loaded');
+  btnHulp = document.querySelector('.js-help');
   const params = new URLSearchParams(window.location.search);
   afspraakId = params.get('afspraakId');
+  listenToButton();
   sendMessage();
   setTime();
 });

@@ -1,4 +1,10 @@
-let pagina, afspraakId;
+let pagina, afspraakId, btnHulp;
+
+const listenToButton = () => {
+  btnHulp.addEventListener('click', () => {
+    window.location.href = `help_bevestigen.html?afspraakId=${afspraakId}`;
+  });
+};
 
 const mergePages = () => {
   if (pagina == 'volgen') {
@@ -50,7 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const params = new URLSearchParams(window.location.search);
   pagina = params.get('pagina');
   afspraakId = params.get('afspraakId');
+  btnHulp = document.querySelector('.js-help');
   console.log(pagina);
   console.log(afspraakId);
+  listenToButton();
   mergePages();
 });

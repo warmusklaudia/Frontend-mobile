@@ -13,8 +13,9 @@
 
     <link rel="stylesheet" href="Style/normalize.css" />
     <link rel="stylesheet" href="Style/screen.css" />
+    <script src="script/mergePages.js"></script>
+    <script src="script/helpBevestigen.js"></script>
 
-        <script src="script/mergePages.js"></script>
 </head>
 <body>
     <main class="c-app">
@@ -24,9 +25,7 @@
         <section class="c-page">
             <h2 class="c-bottommargin">Wilt u dat er iemand van het onthaal komt?</h2>
             <div class="c-button-flex">
-                <a href="index.html?pagina=help_onderweg">
-                    <button class="c-button">Ja</button>
-                </a>
+                    <button class="c-button js-button-ja">Ja</button>
                 <button onClick="history.go(-1)" class="c-button">Nee</button>
             </div>
         </section>

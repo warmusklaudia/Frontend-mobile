@@ -1,4 +1,4 @@
-let btnKleedkamer, btnSportscube, btnOnthaal;
+let btnKleedkamer, btnSportscube, btnHulp, btnOnthaal;
 let json;
 // let code = 'af1b5fdd-3293-4f4c-bb38-a1890c882512';
 let response, afspraakId;
@@ -52,6 +52,10 @@ const listenToButtons = async () => {
     console.log(json);
     window.location.href = `index.html?pagina=volgen&afspraakId=${afspraakId}`;
   });
+
+  btnHulp.addEventListener('click', () => {
+    window.location.href = `help_bevestigen.html?afspraakId=${afspraakId}`;
+  });
 };
 
 const showResult = (queryResponse) => {
@@ -98,6 +102,7 @@ const init = () => {
   btnKleedkamer = document.querySelector('.js-kleedkamer');
   btnSportscube = document.querySelector('.js-sportscube');
   btnOnthaal = document.querySelector('.js-onthaal');
+  btnHulp = document.querySelector('.js-help');
 };
 
 document.addEventListener('DOMContentLoaded', function () {

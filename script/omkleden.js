@@ -1,5 +1,5 @@
 let afspraakId;
-let btnKleedkamer, btnSportscube;
+let btnKleedkamer, btnSportscube, btnHulp;
 
 const options = {
   keepalive: 60,
@@ -19,6 +19,9 @@ function listenToButtons() {
     window.location.href = `index.html?pagina=volgen&afspraakId=${afspraakId}`;
     client.publish('F2B/locatie', JSON.stringify({ locatie: 'onderweg naar sportscube' }));
   });
+  btnHulp.addEventListener('click', () => {
+    window.location.href = `help_bevestigen.html?afspraakId=${afspraakId}`;
+  });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -26,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   btnKleedkamer = document.querySelector('.js-kleedkamer');
   btnSportscube = document.querySelector('.js-sportscube');
+  btnHulp = document.querySelector('.js-help');
 
   const params = new URLSearchParams(window.location.search);
   afspraakId = params.get('afspraakId');
