@@ -17,13 +17,20 @@ const showResult = (queryResponse) => {
   test(randomCode.substring(9));
 };
 
-const get = (url) => fetch(url).then((r) => r.json());
+//const get = (url) => fetch(url).then((r) => r.json());
 
 const getAfspraken = async () => {
-  const endPoint = `https://bezoekersapi.azurewebsites.net/api/afspraken`;
+  const endPoint = 'https://bezoekersapi.azurewebsites.net/api/afspraken';
   const response = await get(endPoint);
   console.log({ response });
   showResult(response);
+
+  // ***********Indien men de id uit de URL halen gebruik onderstaande code.*************
+  // console.log("init works")
+  // const params = new URLSearchParams(window.location.search)
+  // let code = params.get('qrcode')
+  // console.log(code)
+  // qrcode(code)
 };
 
 const qrcode = (code) => {
