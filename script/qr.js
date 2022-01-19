@@ -13,6 +13,7 @@ const showResult = (queryResponse) => {
   console.log(afspraakJson);
   var randomCode = afspraakJson[Math.floor(Math.random() * afspraakJson.length)];
   qrcode(randomCode.substring(9));
+  checkValidity(randomCode.substring(9));
 };
 
 const get = (url) => fetch(url).then((r) => r.json());
@@ -37,27 +38,29 @@ const qrcode = (code) => {
   });
 };
 
-if (randomCode == '123456789') {
-  console.log('wrong ID');
+const checkValidity = (code) => {
+  if (code == '123456789') {
+    console.log('wrong ID');
 
-  let pagina = document.getElementById('pagina');
-  pagina.classList.add('js-temp-click');
+    let pagina = document.getElementById('pagina');
+    pagina.classList.add('js-temp-click');
 
-  let nextpage = document.querySelector('.js-temp-click');
-  nextpage.addEventListener('click', function () {
-    window.location.href = 'error.html';
-  });
-} else {
-  console.log('Good ID');
+    let nextpage = document.querySelector('.js-temp-click');
+    nextpage.addEventListener('click', function () {
+      window.location.href = 'error.html';
+    });
+  } else {
+    console.log('Good ID');
 
-  let pagina = document.getElementById('pagina');
-  pagina.classList.add('js-temp-click');
+    let pagina = document.getElementById('pagina');
+    pagina.classList.add('js-temp-click');
 
-  let nextpage = document.querySelector('.js-temp-click');
-  nextpage.addEventListener('click', function () {
-    window.location.href = 'omkleden.html';
-  });
-}
+    let nextpage = document.querySelector('.js-temp-click');
+    nextpage.addEventListener('click', function () {
+      window.location.href = `omkleden.html?afspraakId=${code}`;
+    });
+  }
+};
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log('DOM geladen');
