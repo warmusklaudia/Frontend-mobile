@@ -17,12 +17,15 @@
   --color-green: #22ce99;
   --color-black: #111111;
   --color-grey: #282829;
+  --color-grey-green: #b2c6c0;
 
   /* forms */
   --global-text-color: var(--color-grey);
   --global-button-color: var(--color-green);
   --global-button-text-color: var(--color-black);
   --global-image-color: var(--color-green);
+
+  --global-disabled-button-color: var(--color-grey-green);
 
   /* border radius */
   --global-borderRadius: var(--global-whitespace-xl);
@@ -246,6 +249,11 @@ select {
   min-height: 4rem;
   outline: none;
   cursor: pointer;
+}
+
+.c-button:disabled {
+  background-color: var(--global-disabled-button-color);
+  cursor: auto;
 }
 
 .c-button-hulp {
