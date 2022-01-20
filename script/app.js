@@ -1,20 +1,20 @@
-let btnKleedkamer, btnSportscube, btnOnthaal;
+let btnKleedkamer, btnSportscube, btnHulp, btnOnthaal;
 let json;
 // let code = 'af1b5fdd-3293-4f4c-bb38-a1890c882512';
-let response;
+let response, afspraakId;
 
 const options = {
   keepalive: 60,
   clean: true,
   rejectUnauthorized: false,
-  checkServerIdentity: false
-}
+  checkServerIdentity: false,
+};
 
-const client = mqtt.connect("mqtt://13.81.105.139", options);
+const client = mqtt.connect('mqtt://13.81.105.139', options);
 
-client.on("connect", function(){
-  console.log("Connected to mqtt")
-})
+client.on('connect', function () {
+  console.log('Connected to mqtt');
+});
 
 const listenToButtons = async () => {
   // let bezoekersData = await getVisitorData(code);
@@ -24,6 +24,7 @@ const listenToButtons = async () => {
     json = { locatie: 'onderweg naar kleedkamer' };
     changeLocation(json);
     console.log(json);
+    window.location.href = `index.html?pagina=volgen&afspraakId=${afspraakId}`;
 
     // voorlopig een sleep function
     // sleep(5000).then(() => {
@@ -36,6 +37,7 @@ const listenToButtons = async () => {
     json = { locatie: 'onderweg naar sportscube' };
     changeLocation(json);
     console.log(json);
+    window.location.href = `index.html?pagina=volgen&afspraakId=${afspraakId}`;
 
     // voorlopig een sleep function
     // sleep(5000).then(() => {
@@ -45,10 +47,15 @@ const listenToButtons = async () => {
     // });
   });
   btnOnthaal.addEventListener('click', () => {
-    json = { locatie: 'onderweg naar onthaal'}
+    json = { locatie: 'onderweg naar onthaal' };
     changeLocation(json);
     console.log(json);
-  })
+    window.location.href = `index.html?pagina=volgen&afspraakId=${afspraakId}`;
+  });
+
+  btnHulp.addEventListener('click', () => {
+    window.location.href = `help_bevestigen.html?afspraakId=${afspraakId}`;
+  });
 };
 
 const showResult = (queryResponse) => {
@@ -73,7 +80,7 @@ const changeLocation = (jsonObject) => {
   //   .then((data) => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
   //   .catch((err) => console.log(err)); // Do something with the error
 
-    client.publish("F2B/locatie", JSON.stringify(json));
+  client.publish('F2B/locatie', JSON.stringify(json));
 };
 
 const get = (url) => fetch(url).then((r) => r.json());
@@ -89,9 +96,13 @@ const sleep = (time) => {
 };
 
 const init = () => {
+  const params = new URLSearchParams(window.location.search);
+  afspraakId = params.get('afspraakId');
+
   btnKleedkamer = document.querySelector('.js-kleedkamer');
   btnSportscube = document.querySelector('.js-sportscube');
   btnOnthaal = document.querySelector('.js-onthaal');
+  btnHulp = document.querySelector('.js-help');
 };
 
 document.addEventListener('DOMContentLoaded', function () {
