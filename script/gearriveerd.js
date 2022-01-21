@@ -8,7 +8,7 @@ const listenToButton = () => {
 
 const options = {
   keepalive: 60,
-  clean: true,
+  clean: true
 };
 
 const client = mqtt.connect('ws://40.113.96.140:80', options);
