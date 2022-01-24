@@ -44,15 +44,6 @@ const getAfspraken = async () => {
     img.src = 'img/png/299045_sign_error_icon.png';
     img.classList.add("c-error")
 	  document.getElementById('pagina').appendChild(img);
-
-    let pagina = document.getElementById('pagina');
-    pagina.classList.add('js-temp-click');
-
-    let nextpage = document.querySelector('.js-temp-click');
-    nextpage.addEventListener('click', function () {
-      window.location.href = 'error.html';
-    });
-    
     
   } else {
     console.log('Good ID');
