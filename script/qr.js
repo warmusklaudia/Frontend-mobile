@@ -46,12 +46,13 @@ const getAfspraken = async () => {
   } else {
     console.log('Good ID');
 
+    qrcode(id)
     let pagina = document.getElementById('pagina');
     pagina.classList.add('js-temp-click');
 
     let nextpage = document.querySelector('.js-temp-click');
     nextpage.addEventListener('click', function () {
-      window.location.href = `omkleden.html?afspraakId=${code}`;
+      window.location.href = `omkleden.html?afspraakId=${id}`;
     });
   }
 };
