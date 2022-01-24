@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temi Mobile</title>
+
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="stylesheet" href="Style/normalize.css" />
+    <link rel="stylesheet" href="Style/screen.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="script/robot.js"></script>
+    <script src="script/mergePages.js"></script>
+  </head>
+  <body>
+        <div class="o-container u-max-width-xs">
+          <form class="c-card">
+            <fieldset>
+                <label class="c-label" for="naam">Naam *</label>
+                <input class="c-input" type="text" name="naam" id="naam" placeholder="Naam" required/>
+            </fieldset>
+            <fieldset>
+                <label class="c-label" for="voornaam">Voornaam *</label>
+                <input class="c-input" type="text" name="voornaam" id="voornaam" placeholder="Voornaam" required/>
+            </fieldset>
+            <fieldset>
+              <label class="c-label" for="datum">Datum *</label>
+              <input class="c-input" type="date" name="datum" id="datum" required/>
+            </fieldset>
+            <fieldset>
+              <label class="c-label" for="uur">Uur *</label>
+              <input class="c-input" type="time" name="uur" id="uur" required/>
+            </fieldset>
+            <fieldset>
+              <label class="c-label" for="email">E-mail * 
+                <span class="c-label__error-message js-email-error-message">
+                This field is required
+                </span>
+              </label>
+              <input class="c-input" type="email" name="email" id="email" placeholder="bv: john@doe.com" required/>
+            </fieldset>
+            <fieldset>
+              <label class="c-label" for="telefoon">Telefoonnummer</label>
+              <input class="c-input" type="text" name="telefoon" id="telefoon" placeholder="bv: 0498765432"/>
+            </fieldset>
+            <div class="c-btn">
+              <button class="c-button c-button__afspraak" type="button">Voeg afspraak toe</button>
+            </div>
+          </form>
+        </div>
+  </body>
+</html>
