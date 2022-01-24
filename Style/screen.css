@@ -102,6 +102,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#afspraak {
+  background-color: var(--color-green);
+}
+
 /*------------------------------------*\
 #Elements
 \*------------------------------------*/
@@ -231,8 +235,25 @@ fieldset {
 .c-card {
   padding: var(--global-whitespace-lg);
   border-radius: 4px;
-  border-top: var(--global-whitespace-sm) solid var(--global-color-alpha-600);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--color-green-light);
+  box-shadow: 1px 2px 4px 4px var(--color-green-dark);
+  background-color: #ffffff;
+}
+
+.c-card__item {
+  margin: 0;
+}
+
+.c-card__date {
+  display: flex;
+}
+
+.c-card__datum {
+  width: 45%;
+}
+.c-card__uur {
+  margin-left: 28px;
+  width: 40%;
 }
 
 .c-app {
@@ -472,6 +493,20 @@ fieldset {
   font-size: 1rem;
   min-width: 10rem;
   min-height: 3rem;
+}
+
+/*------------------------------------*\
+#States
+\*------------------------------------*/
+
+.has-error {
+  --label-color: var(--global-color-error);
+  --input-color: var(--global-color-error);
+  --input-placeholder-color: var(--global-color-error-transparent);
+  --input-borderColor: var(--global-input-error-borderColor);
+  --input-hover-borderColor: var(--global-input-error-borderColor);
+  --input-focus-borderColor: var(--global-input-error-borderColor);
+  --input-focus-boxShadowColor: var(--global-input-error-boxShadowColor);
 }
 
 /*
