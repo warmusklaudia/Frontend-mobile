@@ -13,43 +13,76 @@
 
     <link rel="stylesheet" href="Style/normalize.css" />
     <link rel="stylesheet" href="Style/screen.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
-    <script src="script/robot.js"></script>
-    <script src="script/mergePages.js"></script>
+    <script src="script/afspraakValidation.js"></script>
   </head>
-  <body>
+  <body id="afspraak">
         <div class="o-container u-max-width-xs">
           <form class="c-card">
             <fieldset>
-                <label class="c-label" for="naam">Naam *</label>
-                <input class="c-input" type="text" name="naam" id="naam" placeholder="Naam" required/>
+              <p class="c-card__item js-naam-field">
+                <label class="c-label js-naam-label" for="naam">Naam *
+                  <span class="c-label__error-message js-naam-error-message">
+                    This field is required
+                  </span>
+                </label>
+                <input class="c-input js-naam-input" type="text" name="naam" id="naam" placeholder="Naam" required/>
+              </p>
+
             </fieldset>
             <fieldset>
-                <label class="c-label" for="voornaam">Voornaam *</label>
-                <input class="c-input" type="text" name="voornaam" id="voornaam" placeholder="Voornaam" required/>
+              <p class="c-card__item js-voornaam-field">
+                <label class="c-label js-voornaam-label" for="voornaam">Voornaam *
+                  <span class="c-label__error-message js-voornaam-error-message">
+                    This field is required
+                  </span>
+                </label>
+                <input class="c-input js-voornaam-input" type="text" name="voornaam" id="voornaam" placeholder="Voornaam" required/>
+              </p>
+
             </fieldset>
             <fieldset>
-              <label class="c-label" for="datum">Datum *</label>
-              <input class="c-input" type="date" name="datum" id="datum" required/>
+              <div class="c-card__date">
+                <div class="c-card__datum">
+                  <p class="c-card__item js-datum-field">
+                    <label class="c-label js-datum-label" for="datum">Datum *
+                    <span class="c-label__error-message js-datum-error-message">
+                      This field is required
+                      </span>
+                    </label>
+                    <input class="c-input js-datum-input" type="date" name="datum" id="datum" required/>
+                  </p>
+                </div>
+                <div class="c-card__uur">
+                  <p class="c-card__item js-uur-field">
+                    <label class="c-label js-uur-label" for="uur">Uur *
+                    <span class="c-label__error-message js-uur-error-message">
+                      This field is required
+                    </span>
+                    </label>
+                    <input class="c-input js-uur-input" type="time" name="uur" id="uur" required/>
+                  </p>
+
+                </div>
+               
+              </div>
+           
             </fieldset>
             <fieldset>
-              <label class="c-label" for="uur">Uur *</label>
-              <input class="c-input" type="time" name="uur" id="uur" required/>
-            </fieldset>
-            <fieldset>
-              <label class="c-label" for="email">E-mail * 
+              <p class="c-card__item js-email-field">
+                <label class="c-label js-email-label" for="email">E-mail * 
                 <span class="c-label__error-message js-email-error-message">
                 This field is required
                 </span>
-              </label>
-              <input class="c-input" type="email" name="email" id="email" placeholder="bv: john@doe.com" required/>
+                </label>
+                <input class="c-input js-email-input" type="email" name="email" id="email" placeholder="bv: john@doe.com" required/>
+              </p>
             </fieldset>
             <fieldset>
               <label class="c-label" for="telefoon">Telefoonnummer</label>
               <input class="c-input" type="text" name="telefoon" id="telefoon" placeholder="bv: 0498765432"/>
             </fieldset>
             <div class="c-btn">
-              <button class="c-button c-button__afspraak" type="button">Voeg afspraak toe</button>
+              <button class="c-button c-button__afspraak js-voeg-afspraak-toe-btn" type="button">Voeg afspraak toe</button>
             </div>
           </form>
         </div>
