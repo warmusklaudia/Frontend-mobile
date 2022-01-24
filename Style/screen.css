@@ -157,13 +157,52 @@ p {
   color: var(--global-text-color);
 }
 
+label,
+input,
+textarea,
+select {
+  display: block;
+  width: 100%;
+}
+
 select {
   width: 100%;
+}
+
+body {
+  min-height: 100vh;
+  padding: var(--global-whitespace-base);
+  display: grid;
+  place-items: center;
+  background-color: var(--global-page-backgroundColor);
+}
+
+fieldset {
+  border: none;
+  padding: var(--global-whitespace-sm);
 }
 
 .o-row {
   position: relative;
   padding: var(--global-whitespace-md) var(--global-whitespace-md) var(--global-baseline);
+}
+
+.o-row--login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.o-row--lg {
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 79.5em; /* 79.5 * 16px = 1272 */
+  width: 100%;
 }
 
 .o-button-reset {
@@ -187,6 +226,13 @@ select {
 
   /* Corrects inability to style clickable `input` types in iOS */
   -webkit-appearance: none;
+}
+
+.c-card {
+  padding: var(--global-whitespace-lg);
+  border-radius: 4px;
+  border-top: var(--global-whitespace-sm) solid var(--global-color-alpha-600);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 .c-app {
@@ -268,6 +314,11 @@ select {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.c-btn {
+  display: flex;
+  justify-content: center;
 }
 
 .c-button {
@@ -379,22 +430,31 @@ select {
   color: var(--label-color, var(--global-label-color));
 }
 
+.c-label__error-message {
+  font-weight: 600;
+  float: right;
+  display: none;
+}
+
+.c-label__error-message.is-visible {
+  display: block;
+}
+
 .c-input {
   --input-transition: all var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 250px;
+  outline: none;
+  width: 90%;
   border-radius: var(--input-borderRadius, var(--global-borderRadius));
   border: var(--input-borderWidth, var(--global-borderWidth)) solid var(--input-borderColor, var(--global-input-borderColor));
   background-color: var(--input-backgroundColor, var(--global-input-backgroundColor));
   color: var(--global-input-color);
   font-family: inherit;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: calc(var(--global-baseline) * 3);
   padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
-  margin-top: var(--global-whitespace-sm);
-  outline: none;
   transition: var(--input-transition);
 }
 
@@ -412,4 +472,22 @@ select {
   font-size: 1rem;
   min-width: 10rem;
   min-height: 3rem;
+}
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-xs {
+  max-width: 27em !important;
+}
+
+.u-max-width-sm {
+  max-width: 32em !important;
+}
+
+.u-max-width-md {
+  max-width: 50em !important;
 }
