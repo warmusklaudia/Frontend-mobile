@@ -34,6 +34,17 @@ const getAfspraken = async () => {
   if (response["afspraakId"] == null) {
     console.log('wrong ID');
 
+    let message = document.querySelector(".js-message")
+    message.textContent = "Uw afspraakcode is ongeldig. Gelieve een geldige afspraakcode te gebruiken."
+
+
+    //errorSvg.textContent = 
+
+    var img = document.createElement('img'); 
+    img.src = 'img/png/299045_sign_error_icon.png';
+    img.classList.add("c-error")
+	  document.getElementById('pagina').appendChild(img);
+
     let pagina = document.getElementById('pagina');
     pagina.classList.add('js-temp-click');
 
