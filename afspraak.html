@@ -17,7 +17,7 @@
     <script src="script/robot.js"></script>
     <script src="script/mergePages.js"></script>
   </head>
-  <body>
+  <body id="afspraak">
         <div class="o-container u-max-width-xs">
           <form class="c-card">
             <fieldset>
@@ -29,12 +29,18 @@
                 <input class="c-input" type="text" name="voornaam" id="voornaam" placeholder="Voornaam" required/>
             </fieldset>
             <fieldset>
-              <label class="c-label" for="datum">Datum *</label>
-              <input class="c-input" type="date" name="datum" id="datum" required/>
-            </fieldset>
-            <fieldset>
-              <label class="c-label" for="uur">Uur *</label>
-              <input class="c-input" type="time" name="uur" id="uur" required/>
+              <div class="c-card__date">
+                <div class="c-card__datum">
+                  <label class="c-label" for="datum">Datum *</label>
+                  <input class="c-input" type="date" name="datum" id="datum" required/>
+                </div>
+                <div class="c-card__uur">
+                  <label class="c-label" for="uur">Uur *</label>
+                  <input class="c-input" type="time" name="uur" id="uur" required/>
+                </div>
+               
+              </div>
+           
             </fieldset>
             <fieldset>
               <label class="c-label" for="email">E-mail * 
