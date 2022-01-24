@@ -332,3 +332,65 @@ select {
     font-size: 2rem;
   }
 }
+
+/* Afpraak form */
+.c-form-field {
+  display: inline-block;
+  position: relative;
+}
+
+.c-afspraak {
+  margin-top: var(--global-whitespace-lg);
+}
+
+/* .c-form__item label {
+  display: inline-block;
+  width: 100px;
+}
+.c-form__item input {
+  display: inline-block;
+  width: 200px;
+} */
+
+.c-label {
+  margin-bottom: 0;
+  font-size: 14px;
+  padding-bottom: var(--global-whitespace-sm);
+  line-height: calc(var(--global-baseline) * 2);
+  color: var(--label-color, var(--global-label-color));
+}
+
+.c-input {
+  --input-transition: all var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 250px;
+  border-radius: var(--input-borderRadius, var(--global-borderRadius));
+  border: var(--input-borderWidth, var(--global-borderWidth)) solid var(--input-borderColor, var(--global-input-borderColor));
+  background-color: var(--input-backgroundColor, var(--global-input-backgroundColor));
+  color: var(--global-input-color);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: calc(var(--global-baseline) * 3);
+  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+  margin-top: var(--global-whitespace-sm);
+  outline: none;
+  transition: var(--input-transition);
+}
+
+.c-input:hover {
+  border-color: var(--input-hover-borderColor, var(--global-input-hover-borderColor));
+}
+
+.c-input:focus,
+.c-input:active {
+  border-color: var(--input-focus-borderColor, var(--global-input-focus-borderColor));
+  box-shadow: var(--global-input-focus-boxShadowSpread) var(--input-focus-boxShadowColor, var(--global-input-focus-boxShadowColor));
+}
+
+.c-button__afspraak {
+  font-size: 1rem;
+  min-width: 10rem;
+  min-height: 3rem;
+}
