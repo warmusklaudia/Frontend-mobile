@@ -240,6 +240,10 @@ fieldset {
   background-color: #ffffff;
 }
 
+.c-card__item {
+  margin: 0;
+}
+
 .c-card__date {
   display: flex;
 }
@@ -489,6 +493,20 @@ fieldset {
   font-size: 1rem;
   min-width: 10rem;
   min-height: 3rem;
+}
+
+/*------------------------------------*\
+#States
+\*------------------------------------*/
+
+.has-error {
+  --label-color: var(--global-color-error);
+  --input-color: var(--global-color-error);
+  --input-placeholder-color: var(--global-color-error-transparent);
+  --input-borderColor: var(--global-input-error-borderColor);
+  --input-hover-borderColor: var(--global-input-error-borderColor);
+  --input-focus-borderColor: var(--global-input-error-borderColor);
+  --input-focus-boxShadowColor: var(--global-input-error-boxShadowColor);
 }
 
 /*
