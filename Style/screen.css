@@ -17,6 +17,14 @@
   --color-green: #22ce99;
   --color-black: #111111;
   --color-grey: #282829;
+  --global-color-green-x-transparent: #22ce994d;
+
+  /* Global colors */
+  --global-color-neutral-xxx-light: #e2e3e7;
+  --global-color-neutral-xx-light: #caccd4;
+  --global-color-neutral-x-light: #b5b6c0;
+  --global-color-error: #ff3333;
+  --global-color-error-x-transparent: #ff33334d;
 
   /* forms */
   --global-text-color: var(--color-grey);
@@ -39,6 +47,26 @@
   --global-whitespace-lg: calc(var(--global-baseline) * 4); /*  = 32px */
   --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
   --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
+
+  /* transitions */
+  --global-transitionEasing-out: ease-out;
+  --global-transitionEasing-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --global-transitionDuration-alpha: 0.1s;
+  --global-transitionDuration-beta: 0.2s;
+  --global-transitionDuration-gamma: 0.3s;
+
+  /* forms */
+  --global-label-color: var(--color-grey);
+  --global-placeholder-color: var(--global-color-neutral-x-light);
+  --global-input-backgroundColor: White;
+  --global-input-color: var(--color-black);
+  --global-input-borderColor: var(--global-color-neutral-xxx-light);
+  --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+  --global-input-focus-borderColor: var(--color-green);
+  --global-input-error-borderColor: var(--global-color-error);
+  --global-input-focus-boxShadowSpread: 0 0 0 3px;
+  --global-input-focus-boxShadowColor: var(--global-color-green-x-transparent);
+  --global-input-error-boxShadowColor: var(--global-color-error-x-transparent);
 }
 
 /*------------------------------------*\
@@ -129,6 +157,29 @@ select {
 .o-row {
   position: relative;
   padding: var(--global-whitespace-md) var(--global-whitespace-md) var(--global-baseline);
+}
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
 }
 
 .c-app {
@@ -222,6 +273,12 @@ select {
   min-width: 17rem;
   min-height: 4rem;
   outline: none;
+  cursor: pointer;
+}
+
+.c-button-hulp {
+  width: 100%;
+  justify-content: flex-end;
   cursor: pointer;
 }
 
