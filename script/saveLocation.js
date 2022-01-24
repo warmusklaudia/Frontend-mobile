@@ -5,12 +5,10 @@ let response;
 
 const options = {
   keepalive: 60,
-  clean: true,
-  rejectUnauthorized: false,
-  checkServerIdentity: false
+  clean: true
 }
 
-const client = mqtt.connect("mqtt://13.81.105.139", options);
+const client = mqtt.connect("ws://40.113.96.140:80", options);
 
 client.on("connect", function(){
   console.log("Connected to mqtt")
