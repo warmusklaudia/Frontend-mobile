@@ -18,39 +18,40 @@
     <script src="script/mergePages.js"></script>
   </head>
   <body>
-    <main class="c-app">
-      <section class="c-afspraak">
-        <form class="c-form__item ">
-            <div class="c-form-field">
+        <div class="o-container u-max-width-xs">
+          <form class="c-card">
+            <fieldset>
                 <label class="c-label" for="naam">Naam *</label>
-                <input class="c-input" type="text" name="naam" id="naam"/>
-              </div>
-            <div class="c-form-field">
+                <input class="c-input" type="text" name="naam" id="naam" placeholder="Naam" required/>
+            </fieldset>
+            <fieldset>
                 <label class="c-label" for="voornaam">Voornaam *</label>
-                <input class="c-input" type="text" name="voornaam" id="voornaam"/>
-              </div>
-            <div class="c-form-field">
+                <input class="c-input" type="text" name="voornaam" id="voornaam" placeholder="Voornaam" required/>
+            </fieldset>
+            <fieldset>
               <label class="c-label" for="datum">Datum *</label>
-              <input class="c-input" type="date" name="datum" id="datum"/>
-            </div>
-            <div class="c-form-field">
+              <input class="c-input" type="date" name="datum" id="datum" required/>
+            </fieldset>
+            <fieldset>
               <label class="c-label" for="uur">Uur *</label>
-              <input class="c-input" type="time" name="uur" id="uur"/>
-            </div>
-            <div class="c-form-field">
-              <label class="c-label" for="email">E-mail</label>
-              <input class="c-input" type="email" name="email" id="email"/>
-            </div>
-            <div class="c-form-field">
+              <input class="c-input" type="time" name="uur" id="uur" required/>
+            </fieldset>
+            <fieldset>
+              <label class="c-label" for="email">E-mail * 
+                <span class="c-label__error-message js-email-error-message">
+                This field is required
+                </span>
+              </label>
+              <input class="c-input" type="email" name="email" id="email" placeholder="bv: john@doe.com" required/>
+            </fieldset>
+            <fieldset>
               <label class="c-label" for="telefoon">Telefoonnummer</label>
-              <input class="c-input" type="text" name="telefoon" id="telefoon"/>
-            </div>
-            <div class="c-form__item">
+              <input class="c-input" type="text" name="telefoon" id="telefoon" placeholder="bv: 0498765432"/>
+            </fieldset>
+            <div class="c-btn">
               <button class="c-button c-button__afspraak" type="button">Voeg afspraak toe</button>
             </div>
           </form>
-      </section>
-      <!-- change form -->
-    </main>
+        </div>
   </body>
 </html>
