@@ -355,6 +355,12 @@ fieldset {
   cursor: pointer;
 }
 
+.c-button__addafspraak {
+  font-size: 1.5rem;
+  min-width: 18rem;
+  min-height: 4rem;
+}
+
 .c-button:hover {
   background-color: var(--global-button-color-hover);
 }
