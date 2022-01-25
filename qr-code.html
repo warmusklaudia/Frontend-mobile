@@ -28,6 +28,9 @@
 
     <link rel="stylesheet" href="Style/normalize.css" />
     <link rel="stylesheet" href="Style/screen.css" />
+    <script src="https://unpkg.com/mqtt@4.0.1/dist/mqtt.js"></script>
+    <script src="script/qr.js"></script>
+    <script src="script/handleData.js"></script>
   </head>
   <body>
     <main class="c-app">
@@ -53,8 +56,6 @@
         <h2 class="js-message">Scan deze QR-code met de Temi robot om je aan te melden:</h2>
         <a class="js-indexpagina" id="pagina">
             <div class="c-qrcode" id="qrcode"></div>
-            <script src="script/qr.js"></script>
-            <script src="script/handleData.js"></script>
         </a>
       </section>
     </main>

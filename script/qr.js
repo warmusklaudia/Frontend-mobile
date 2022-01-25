@@ -13,20 +13,40 @@
 //   test(randomCode.substring(9));
 // };
 
+let afspraakId
+
+const options = {
+  keepalive: 60,
+  clean: true
+};
+
+const client = mqtt.connect('ws://40.113.96.140:80', options);
+
+client.on('connect', function () {
+  client.subscribe('B2F/connected', function (err) {
+    if (!err) {
+      console.log("Connected to mqtt!")
+    }
+  });
+});
+
+client.on('message', function (topic, message) {
+  if (topic == 'B2F/connected') {
+    id = JSON.parse(message).afspraakId
+    if (id == afspraakId){''
+      console.log(`Message: ${message.toString()} on Topic: ${topic}`);
+
+      window.location.href = `omkleden.html?afspraakId=${afspraakId}`;
+    }
+  }
+});
+
 const get = (url) => fetch(url).then((r) => r.json());
 
 const getAfspraken = async () => {
 
-  // id uit de url halen
-  var urlParams = new URLSearchParams(window.location.search);
-  let id
-  if (urlParams.has('qrcode')) { // true
-    id = urlParams.get('qrcode'); // "edit"
-  };
-    
-
   // afspraak ophalen met 
-  const endPoint = `https://bezoekersapi.azurewebsites.net/api/afspraken/${id}`;
+  const endPoint = `https://bezoekersapi.azurewebsites.net/api/afspraken/${afspraakId}`;
   const response = await get(endPoint);
   
   // control of de id bestaat / juist is
@@ -48,14 +68,14 @@ const getAfspraken = async () => {
   } else {
     console.log('Good ID');
 
-    qrcode(id)
+    qrcode(afspraakId)
     let pagina = document.getElementById('pagina');
     pagina.classList.add('js-temp-click');
 
-    let nextpage = document.querySelector('.js-temp-click');
-    nextpage.addEventListener('click', function () {
-      window.location.href = `omkleden.html?afspraakId=${id}`;
-    });
+    // let nextpage = document.querySelector('.js-temp-click');
+    // nextpage.addEventListener('click', function () {
+    //   window.location.href = `omkleden.html?afspraakId=${id}`;
+    // });
   }
 };
 
@@ -98,5 +118,12 @@ const qrcode = (code) => {
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log('DOM geladen');
+
+  // id uit de url halen
+  var urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('qrcode')) { // true
+    afspraakId = urlParams.get('qrcode'); // "edit"
+  };
+
   getAfspraken();
 });
