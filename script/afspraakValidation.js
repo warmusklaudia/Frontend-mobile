@@ -103,6 +103,8 @@ const getDOMElements = function () {
   uur.input = document.querySelector('.js-uur-input');
   uur.field = document.querySelector('.js-uur-field');
 
+  telefoon.input = document.querySelector('.js-telefoon-input');
+
   voegAfspraakToe = document.querySelector('.js-voeg-afspraak-toe-btn');
 };
 
@@ -130,6 +132,29 @@ const enableListeners = function () {
       removeErrors(voornaam);
       removeErrors(datum);
       console.info('Form is good to go.');
+
+      // hier values ophalen en submitten
+      let jsonObject = {"datum": datum.input.value, "voornaam": voornaam.input.value, "naam": naam.input.value, "email": email.input.value, "tijdstip": uur.input.value, "telefoon": telefoon.input.value}
+
+      if(isEmpty(telefoon.input.value)){
+        jsonObject["telefoon"] = null
+        // otherwise you'll just end up with an empty, but not null field in the table
+      }
+
+      console.log("New object created: %O",jsonObject);
+
+      const postMethod = {
+        method: 'POST', 
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8', 
+        },
+        body: JSON.stringify(jsonObject), 
+      };
+    
+      fetch(`https://bezoekersapi.azurewebsites.net/api/afspraken`, postMethod)
+        .then((response) => response.json())
+        .then((data) => console.log(data)) 
+        .catch((err) => console.log(err)); 
     } else {
       if (!isValidEmailAddress(email.input.value)) {
         addErrors(email);
