@@ -13,11 +13,11 @@
 //   test(randomCode.substring(9));
 // };
 
-let afspraakId
+let afspraakId, btnHulp;
 
 const options = {
   keepalive: 60,
-  clean: true
+  clean: true,
 };
 
 const client = mqtt.connect('ws://40.113.96.140:80', options);
@@ -25,15 +25,16 @@ const client = mqtt.connect('ws://40.113.96.140:80', options);
 client.on('connect', function () {
   client.subscribe('B2F/connected', function (err) {
     if (!err) {
-      console.log("Connected to mqtt!")
+      console.log('Connected to mqtt!');
     }
   });
 });
 
 client.on('message', function (topic, message) {
   if (topic == 'B2F/connected') {
-    id = JSON.parse(message).afspraakId
-    if (id == afspraakId){''
+    id = JSON.parse(message).afspraakId;
+    if (id == afspraakId) {
+      ('');
       console.log(`Message: ${message.toString()} on Topic: ${topic}`);
 
       window.location.href = `omkleden.html?afspraakId=${afspraakId}`;
@@ -44,31 +45,28 @@ client.on('message', function (topic, message) {
 const get = (url) => fetch(url).then((r) => r.json());
 
 const getAfspraken = async () => {
-
-  // afspraak ophalen met 
+  // afspraak ophalen met
   const endPoint = `https://bezoekersapi.azurewebsites.net/api/afspraken/${afspraakId}`;
   const response = await get(endPoint);
-  
+
   // control of de id bestaat / juist is
   // correct id: 2cde76d0-1834-4814-922f-936a6bdbf68d
-  if (response["afspraakId"] == null) {
+  if (response['afspraakId'] == null) {
     console.log('wrong ID');
 
-    let message = document.querySelector(".js-message")
-    message.textContent = "Uw afspraakcode is ongeldig. Gelieve een geldige afspraakcode te gebruiken."
+    let message = document.querySelector('.js-message');
+    message.textContent = 'Uw afspraakcode is ongeldig. Gelieve een geldige afspraakcode te gebruiken.';
 
+    //errorSvg.textContent =
 
-    //errorSvg.textContent = 
-
-    var img = document.createElement('img'); 
+    var img = document.createElement('img');
     img.src = 'img/png/299045_sign_error_icon.png';
-    img.classList.add("c-error")
-	  document.getElementById('pagina').appendChild(img);
-    
+    img.classList.add('c-error');
+    document.getElementById('pagina').appendChild(img);
   } else {
     console.log('Good ID');
 
-    qrcode(afspraakId)
+    qrcode(afspraakId);
     let pagina = document.getElementById('pagina');
     pagina.classList.add('js-temp-click');
 
@@ -88,7 +86,6 @@ const qrcode = (code) => {
     colorDark: '#282829',
     colorLight: '#ffffff',
     correctLevel: QRCode.CorrectLevel.H,
-    image: 'Logo.png',
   });
 };
 
@@ -116,14 +113,22 @@ const qrcode = (code) => {
 //   }
 // };
 
+const listenToButtons = () => {
+  btnHulp.addEventListener('click', () => {
+    window.location.href = `help_bevestigen.html?afspraakId=${afspraakId}`;
+  });
+};
+
 document.addEventListener('DOMContentLoaded', function () {
   console.log('DOM geladen');
+  btnHulp = document.querySelector('.js-help');
 
   // id uit de url halen
   var urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.has('qrcode')) { // true
+  if (urlParams.has('qrcode')) {
+    // true
     afspraakId = urlParams.get('qrcode'); // "edit"
-  };
-
+  }
   getAfspraken();
+  listenToButtons();
 });
