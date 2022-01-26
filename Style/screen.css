@@ -379,6 +379,11 @@ fieldset {
   cursor: pointer;
 }
 
+.c-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .c-bottommargin {
   margin-bottom: var(--global-whitespace-xxl);
 }

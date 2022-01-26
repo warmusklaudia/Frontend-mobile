@@ -2,7 +2,8 @@ let naam = {},
   voornaam = {},
   email = {},
   voegAfspraakToe,
-  afspraakForm;
+  afspraakForm,
+  terugButton;
 
 const isValidEmailAddress = function (emailAddress) {
   // Basis manier om e-mailadres te checken.
@@ -107,6 +108,8 @@ const getDOMElements = function () {
   voegAfspraakToe = document.querySelector('.js-voeg-afspraak-toe-btn');
 
   afspraakForm = document.getElementById('afspraak-form');
+
+  terugButton = document.querySelector('.js-terug-btn');
 };
 
 const enableListeners = function () {
@@ -185,6 +188,10 @@ const enableListeners = function () {
         uur.input.addEventListener('input', isValidUur);
       }
     }
+  });
+
+  terugButton.addEventListener('click', () => {
+    window.location.href = 'index_admin.html';
   });
 };
 
