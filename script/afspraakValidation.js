@@ -3,6 +3,7 @@ let naam = {},
   email = {},
   voegAfspraakToe,
   afspraakForm,
+  messageAfspraak,
   terugButton;
 
 const isValidEmailAddress = function (emailAddress) {
@@ -106,10 +107,9 @@ const getDOMElements = function () {
   telefoon.input = document.querySelector('.js-telefoon-input');
 
   voegAfspraakToe = document.querySelector('.js-voeg-afspraak-toe-btn');
-
   afspraakForm = document.getElementById('afspraak-form');
-
   terugButton = document.querySelector('.js-terug-btn');
+  messageAfspraak = document.querySelector('.js-mess-toegevoegd');
 };
 
 const enableListeners = function () {
@@ -144,9 +144,9 @@ const enableListeners = function () {
         jsonObject['telefoon'] = null;
         // otherwise you'll just end up with an empty, but not null field in the table
       }
+      messageAfspraak.style.display = 'block';
 
       console.log('New object created: %O', jsonObject);
-      alert('Afspraak toegevoegd');
 
       const postMethod = {
         method: 'POST',
@@ -160,6 +160,8 @@ const enableListeners = function () {
         .then((response) => response.json())
         .then((data) => console.log(data))
         .catch((err) => console.log(err));
+
+      alert('Afspraak toegevoegd');
 
       afspraakForm.reset();
     } else {

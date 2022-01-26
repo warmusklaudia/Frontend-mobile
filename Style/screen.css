@@ -421,6 +421,12 @@ fieldset {
   text-align: center;
 }
 
+.c-message-admin {
+  text-align: center;
+  padding-top: var(--global-whitespace-md);
+  display: none;
+}
+
 .c-map {
   margin: var(--global-whitespace-md);
   display: flex;
