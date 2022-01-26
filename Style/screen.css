@@ -355,7 +355,7 @@ fieldset {
   cursor: pointer;
 }
 
-.c-button__addafspraak {
+.c-button__afspraken {
   font-size: 1.5rem;
   min-width: 18rem;
   min-height: 4rem;
@@ -499,6 +499,77 @@ fieldset {
   font-size: 1rem;
   min-width: 10rem;
   min-height: 3rem;
+}
+
+/* afspraken */
+.c-content {
+  box-sizing: border-box;
+  height: calc(100vh - 72px);
+  padding: 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.c-content__title {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.c-afspraak {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 70px;
+  gap: 1.5rem;
+  margin: 1rem 0;
+  padding-top: 1rem;
+  align-items: center;
+  outline: none;
+}
+
+.c-afspraak + .c-afspraak {
+  border-top: 1px solid #eee;
+}
+
+.c-afspraak--header {
+  text-transform: uppercase;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.c-afspraak__name {
+  margin: 0;
+}
+
+.c-afsrpaak__firstname {
+  margin: 0;
+  opacity: 0.4;
+}
+
+.c-afspraak__date {
+  text-align: center;
+}
+
+.c-afspraak__hour {
+  text-align: center;
+}
+
+.c-afspraak__delete {
+  display: flex;
+  justify-content: center;
+}
+
+.c-afspraak__delete-symbol {
+  height: 1.2rem;
+  opacity: 0.6;
+  will-change: opacity;
+  cursor: pointer;
+}
+
+.c-traject__delete-symbol:hover {
+  opacity: 1;
+}
+
+.c-traject__delete .c-traject__delete-symbol:hover {
+  stroke: rgb(220, 22, 22);
 }
 
 /*------------------------------------*\
