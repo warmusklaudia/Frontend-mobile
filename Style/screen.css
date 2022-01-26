@@ -379,6 +379,11 @@ fieldset {
   cursor: pointer;
 }
 
+.c-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .c-bottommargin {
   margin-bottom: var(--global-whitespace-xxl);
 }
@@ -414,6 +419,12 @@ fieldset {
   font-size: 1.2rem;
   margin: auto;
   text-align: center;
+}
+
+.c-message-admin {
+  text-align: center;
+  padding-top: var(--global-whitespace-md);
+  display: none;
 }
 
 .c-map {
