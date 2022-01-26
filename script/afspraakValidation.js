@@ -1,7 +1,8 @@
 let naam = {},
   voornaam = {},
   email = {},
-  voegAfspraakToe;
+  voegAfspraakToe,
+  afspraakForm;
 
 const isValidEmailAddress = function (emailAddress) {
   // Basis manier om e-mailadres te checken.
@@ -54,11 +55,9 @@ const isEmpty = function (fieldValue) {
 
 const doubleCheckEmailAddress = function () {
   if (isValidEmailAddress(email.input.value)) {
-    // Stop met dit veld in de gaten te houden; het is in orde.
     email.input.removeEventListener('input', doubleCheckEmailAddress);
     removeErrors(email);
   } else {
-    // Stuk herhalende code.
     if (isEmpty(email.input.value)) {
       email.errorMessage.innerText = 'This field is required';
     } else {
@@ -106,6 +105,8 @@ const getDOMElements = function () {
   telefoon.input = document.querySelector('.js-telefoon-input');
 
   voegAfspraakToe = document.querySelector('.js-voeg-afspraak-toe-btn');
+
+  afspraakForm = document.getElementById('afspraak-form');
 };
 
 const enableListeners = function () {
@@ -134,27 +135,30 @@ const enableListeners = function () {
       console.info('Form is good to go.');
 
       // hier values ophalen en submitten
-      let jsonObject = {"datum": datum.input.value, "voornaam": voornaam.input.value, "naam": naam.input.value, "email": email.input.value, "tijdstip": uur.input.value, "telefoon": telefoon.input.value}
+      let jsonObject = { datum: datum.input.value, voornaam: voornaam.input.value, naam: naam.input.value, email: email.input.value, tijdstip: uur.input.value, telefoon: telefoon.input.value };
 
-      if(isEmpty(telefoon.input.value)){
-        jsonObject["telefoon"] = null
+      if (isEmpty(telefoon.input.value)) {
+        jsonObject['telefoon'] = null;
         // otherwise you'll just end up with an empty, but not null field in the table
       }
 
-      console.log("New object created: %O",jsonObject);
+      console.log('New object created: %O', jsonObject);
+      alert('Afspraak toegevoegd');
 
       const postMethod = {
-        method: 'POST', 
+        method: 'POST',
         headers: {
-          'Content-type': 'application/json; charset=UTF-8', 
+          'Content-type': 'application/json; charset=UTF-8',
         },
-        body: JSON.stringify(jsonObject), 
+        body: JSON.stringify(jsonObject),
       };
-    
+
       fetch(`https://bezoekersapi.azurewebsites.net/api/afspraken`, postMethod)
         .then((response) => response.json())
-        .then((data) => console.log(data)) 
-        .catch((err) => console.log(err)); 
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
+
+      afspraakForm.reset();
     } else {
       if (!isValidEmailAddress(email.input.value)) {
         addErrors(email);
