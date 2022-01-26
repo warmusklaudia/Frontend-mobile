@@ -1,5 +1,23 @@
 let pagina, afspraakId, btnHulp;
 
+const options = {
+  keepalive: 60,
+  clean: true,
+};
+
+const client = mqtt.connect('ws://40.113.96.140:80', options);
+
+const GetAfspraak = function () {
+  url = `https://bezoekersapi.azurewebsites.net/api/afspraken/${afspraakId}`;
+  handleData(url, GetLocatie, null, (method = 'GET'), (body = null));
+};
+
+const GetLocatie = function (JsonObject) {
+  let locatie = JsonObject['locatie'];
+  console.log(locatie);
+  client.publish('F2B/return', JSON.stringify({ locatie: locatie, GUID: afspraakId }));
+};
+
 const listenToButton = () => {
   btnHulp.addEventListener('click', () => {
     window.location.href = `help_bevestigen.html?afspraakId=${afspraakId}`;
@@ -21,6 +39,7 @@ const mergePages = () => {
       window.location.replace(`gearriveerd.html?afspraakId=${afspraakId}`);
     });
   } else if (pagina == 'onderweg') {
+    GetAfspraak(afspraakId);
     document.querySelector('.js-text').textContent = 'Temi is onderweg...';
 
     let pagina = document.getElementById('pagina');
