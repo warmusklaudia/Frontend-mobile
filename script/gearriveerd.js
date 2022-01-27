@@ -20,7 +20,7 @@ function sendMessage() {
 const setTime = () => {
   setTimeout(function () {
     window.location.href = `terugroepen.html?afspraakId=${afspraakId}`;
-  }, 1900);
+  }, 10000);
 };
 
 document.addEventListener('DOMContentLoaded', function () {
