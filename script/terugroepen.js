@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
   htmlMess = document.querySelector('.js-message');
   const params = new URLSearchParams(window.location.search);
   afspraakId = params.get('afspraakId');
-  afspraakId = 'af1b5fdd-3293-4f4c-bb38-a1890c882512';
   checkLocation();
   listenToButtons();
 });
