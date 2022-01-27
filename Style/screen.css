@@ -273,6 +273,19 @@ fieldset {
   line-height: 1rem;
 }
 
+.c-nav__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  outline: none;
+}
+
+.c-nav__admin {
+  position: sticky; 
+  top: 0;
+  background-color: white;
+}
+
 .c-logo {
   padding-left: var(--global-baseline);
 }
@@ -355,16 +368,11 @@ fieldset {
   cursor: pointer;
 }
 
-.c-button__afspraken {
+.c-button__admin {
   font-size: 1.5rem;
   min-width: 18rem;
   min-height: 4rem;
-}
-
-.c-button__home {
-  font-size: 1.5rem;
-  min-width: 25rem;
-  min-height: 4rem;
+  margin-top: 0px;
 }
 
 .c-button:hover {
@@ -392,6 +400,15 @@ fieldset {
 
 .c-bottommargin {
   margin-bottom: var(--global-whitespace-xxl);
+}
+
+.c-admin__buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1rem 0;
+  align-items: center;
+  outline: none;
 }
 
 .c-done {
