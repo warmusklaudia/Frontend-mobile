@@ -135,10 +135,11 @@ const enableListeners = function () {
       removeErrors(naam);
       removeErrors(voornaam);
       removeErrors(datum);
-      console.info('Form is good to go.');
+
+      let date = moment(datum.input.value, "YYYY-MM-DD").format("DD-MM-YY");
 
       // hier values ophalen en submitten
-      let jsonObject = { datum: datum.input.value, voornaam: voornaam.input.value, naam: naam.input.value, email: email.input.value, tijdstip: uur.input.value, telefoon: telefoon.input.value };
+      let jsonObject = { datum: date, voornaam: voornaam.input.value, naam: naam.input.value, email: email.input.value, tijdstip: uur.input.value, telefoon: telefoon.input.value };
 
       if (isEmpty(telefoon.input.value)) {
         jsonObject['telefoon'] = null;
