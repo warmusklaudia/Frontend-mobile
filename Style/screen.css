@@ -234,7 +234,7 @@ fieldset {
 
 .c-card {
   padding: var(--global-whitespace-lg);
-  border-radius: 4px;
+  border-radius: var(--global-whitespace-xs);
   border: 1px solid var(--color-green-light);
   box-shadow: 1px 2px 4px 4px var(--color-green-dark);
   background-color: #ffffff;
@@ -266,6 +266,10 @@ fieldset {
   padding: 0 2rem 2rem 2rem; /* 32px 32px (in onze huidige font-size) */
 }
 
+.c-body {
+  padding-top: var(--global-whitespace-xl);
+}
+
 .c-nav {
   display: flex;
   justify-content: space-between;
@@ -281,9 +285,10 @@ fieldset {
 }
 
 .c-nav__admin {
-  position: sticky; 
+  position: fixed;
   top: 0;
   background-color: white;
+  padding: var(--global-whitespace-sm) 0;
 }
 
 .c-logo {
@@ -370,9 +375,15 @@ fieldset {
 
 .c-button__admin {
   font-size: 1.5rem;
-  min-width: 18rem;
-  min-height: 4rem;
   margin-top: 0px;
+  min-width: 5rem;
+}
+
+@media (min-height: 56rem) {
+  .c-button__admin {
+    font-size: 1.5rem;
+    margin-top: 0px;
+  }
 }
 
 .c-button:hover {
@@ -540,8 +551,6 @@ fieldset {
   box-sizing: border-box;
   height: calc(100vh - 72px);
   padding: 2rem;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .c-content__title {
@@ -575,7 +584,7 @@ fieldset {
 
 .c-afsrpaak__firstname {
   margin: 0;
-  opacity: 0.4;
+  /* opacity: 0.4; */
 }
 
 .c-afspraak__date {
@@ -593,8 +602,8 @@ fieldset {
 
 .c-afspraak__delete-symbol {
   height: 1.2rem;
-  opacity: 0.6;
-  will-change: opacity;
+  /* opacity: 0.6; */
+  /* will-change: opacity; */
   cursor: pointer;
 }
 
