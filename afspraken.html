@@ -24,14 +24,21 @@
     <script src="script/handleData.js"></script>
     <script src="script/afspraken.js"></script>
   </head>
-  <body class="c-body">
+  <body>
     <main class="c-content">
-        <nav class="c-nav__admin">
-            <div class="c-nav__grid">
+      <div class="o-container">
+        <div class="sticky">
+          <nav class="c-nav__admin">
+            <div class="c-navigation">
               <h1 class="c-content__title">Afspraken</h1>
-              <button class="c-button c-button__admin"><a href="afspraak.html">Afspraak toevoegen</a></button>
+                <ul class="o-list c-nav__list">
+                    <li class="c-nav__item"><button class="o-button-reset c-button-icon js-button-add"><svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 24 24" width="36px" ><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></button></li>
+                    <li class="c-nav__item"><button class="o-button-reset c-button-icon js-button-home"><svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 24 24" width="36px" ><path d="M0 0h24v24H0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></button></li>
+                </ul>
             </div>
-        </nav>
+          </nav>
+        </div>
+
       <div class="c-message-admin js-mess-verwijderd">
         <span>Afspraak is verwijderd</span>
       </div>
@@ -60,7 +67,7 @@
               </div>
               <div class="c-afspraak__date">12-02-2022</div>
               <div class="c-afspraak__hour">18:50</div>
-              <div class="c-afpraak__delete">
+              <div class="c-afspraak__delete">
                 <svg class="c-afspraak__delete-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs">
                   <polyline points="3 6 5 6 21 6"></polyline>
                   <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -103,7 +110,7 @@
             </div>
           </div>
       </section>
-      
+      </div>
     </main>
   </body>
 </html>

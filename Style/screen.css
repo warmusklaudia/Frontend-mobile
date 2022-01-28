@@ -161,6 +161,16 @@ p {
   color: var(--global-text-color);
 }
 
+ul,
+ol {
+  padding-left: 24px;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
 label,
 input,
 textarea,
@@ -184,6 +194,11 @@ body {
 fieldset {
   border: none;
   padding: var(--global-whitespace-sm);
+}
+
+div.sticky {
+  position: sticky;
+  top: 0;
 }
 
 .o-row {
@@ -232,6 +247,11 @@ fieldset {
   -webkit-appearance: none;
 }
 
+.o-list {
+  list-style: none;
+  padding: 0;
+}
+
 .c-card {
   padding: var(--global-whitespace-lg);
   border-radius: var(--global-whitespace-xs);
@@ -267,7 +287,9 @@ fieldset {
 }
 
 .c-body {
-  padding-top: var(--global-whitespace-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .c-nav {
@@ -277,18 +299,34 @@ fieldset {
   line-height: 1rem;
 }
 
+.c-nav__list {
+  display: flex;
+}
+
+.c-nav__item {
+  padding: var(--global-whitespace-md);
+}
+
 .c-nav__grid {
+  padding: var(--global-whitespace-lg);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
   align-items: center;
   outline: none;
+  justify-content: space-between;
+}
+
+.c-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .c-nav__admin {
-  position: fixed;
+  width: 100%;
   top: 0;
   background-color: white;
-  padding: var(--global-whitespace-sm) var(--global-whitespace-xxl) var(--global-baseline) var(--global-baseline);
+  padding: var(--global-whitespace-sm);
 }
 
 .c-logo {
@@ -374,9 +412,9 @@ fieldset {
 }
 
 .c-button__admin {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-top: 0px;
-  min-width: 5rem;
+  min-width: 13rem;
 }
 
 @media (min-height: 56rem) {
@@ -404,9 +442,14 @@ fieldset {
   cursor: pointer;
 }
 
+.c-button-icon {
+  fill: var(--color-green-dark);
+}
+
 .c-buttons {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .c-bottommargin {
@@ -549,13 +592,13 @@ fieldset {
 /* afspraken */
 .c-content {
   box-sizing: border-box;
-  height: calc(100vh - 72px);
   padding: 2rem;
 }
 
 .c-content__title {
   margin: 0;
   font-size: 1.4rem;
+  color: var(--color-green-dark);
 }
 
 .c-afspraak {
