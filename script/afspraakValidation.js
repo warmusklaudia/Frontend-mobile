@@ -194,7 +194,7 @@ const enableListeners = function () {
   });
 
   terugButton.addEventListener('click', () => {
-    window.location.href = 'index_admin.html';
+    window.location.href = 'afspraken.html';
   });
 };
 
