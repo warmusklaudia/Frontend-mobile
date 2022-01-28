@@ -7,6 +7,21 @@ const options = {
 
 const client = mqtt.connect('ws://40.113.96.140:80', options);
 
+client.on('connect', function () {
+  console.log('Connected to mqtt');
+  client.subscribe('B2F/arrived');
+});
+
+client.on('message', function (topic, message) {
+  const msg = JSON.parse(message.toString());
+
+  console.log(`Message: ${message.toString()} on Topic: ${topic}`);
+
+  if (topic == 'B2F/arrived' && msg['status'] == 'arrived') {
+    window.location.replace(`gearriveerd.html?afspraakId=${afspraakId}`);
+  }
+});
+
 const GetAfspraak = function () {
   url = `https://bezoekersapi.azurewebsites.net/api/afspraken/${afspraakId}`;
   handleData(url, GetLocatie, null, (method = 'GET'), (body = null));
@@ -31,13 +46,13 @@ const mergePages = () => {
     document.querySelector('.js-text').textContent = 'Volg Temi...';
 
     // onderstaande tijdelijk om te testen
-    let pagina = document.getElementById('pagina');
+    /* let pagina = document.getElementById('pagina');
     pagina.classList.add('js-temp-click');
 
     let indexpage = document.querySelector('.js-temp-click');
     indexpage.addEventListener('click', function () {
       window.location.replace(`gearriveerd.html?afspraakId=${afspraakId}`);
-    });
+    }); */
   } else if (pagina == 'onderweg') {
     GetAfspraak(afspraakId);
     document.querySelector('.js-text').textContent = 'Temi is onderweg...';
