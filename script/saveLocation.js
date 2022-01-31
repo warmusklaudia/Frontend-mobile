@@ -8,7 +8,7 @@ const options = {
   clean: true
 }
 
-const client = mqtt.connect("ws://test.mosquitto.org:8081", options);
+const client = mqtt.connect('ws://40.113.96.140:80', options);
 
 client.on("connect", function(){
   console.log("Connected to mqtt")
