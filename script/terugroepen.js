@@ -5,7 +5,7 @@ let locatieTemi = 'Home base';
 
 const listenToButtons = () => {
   btnTerugroepen.addEventListener('click', () => {
-    window.location.href = `index.html?pagina=onderweg&afspraakId=${afspraakId}`;
+    window.location.href = `index.html?pagina=onderweg&afspraakId=${afspraakId}&return=true`;
   });
   btnHulp.addEventListener('click', () => {
     window.location.href = `help_bevestigen.html?afspraakId=${afspraakId}`;

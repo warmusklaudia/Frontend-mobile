@@ -1,4 +1,4 @@
-let btnKleedkamer, btnSportscube, afspraakId, btnHulp;
+let btnKleedkamer, btnSportscube, afspraakId, returnState, btnHulp;
 
 const listenToButton = () => {
   btnHulp.addEventListener('click', () => {
@@ -19,7 +19,11 @@ function sendMessage() {
 
 const setTime = () => {
   setTimeout(function () {
-    window.location.href = `terugroepen.html?afspraakId=${afspraakId}`;
+    if (returnState == false) {
+      window.location.href = `terugroepen.html?afspraakId=${afspraakId}`;
+    } else {
+      window.location.replace(`locaties.html?afspraakId=${afspraakId}`);
+    }
   }, 10000);
 };
 
@@ -28,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
   btnHulp = document.querySelector('.js-help');
   const params = new URLSearchParams(window.location.search);
   afspraakId = params.get('afspraakId');
+  returnState = params.get('return');
   listenToButton();
   sendMessage();
   setTime();
