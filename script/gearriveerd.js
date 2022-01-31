@@ -11,7 +11,7 @@ const options = {
   clean: true
 };
 
-const client = mqtt.connect('ws://40.113.96.140:80', options);
+const client = mqtt.connect('ws://test.mosquitto.org:8081', options);
 
 function sendMessage() {
   client.publish('F2B/locatie', JSON.stringify({ status: 'gearriveerd' }));
