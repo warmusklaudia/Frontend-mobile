@@ -19,10 +19,10 @@ function sendMessage() {
 
 const setTime = () => {
   setTimeout(function () {
-    if (returnState == false) {
-      window.location.href = `terugroepen.html?afspraakId=${afspraakId}`;
-    } else {
+    if (returnState == true) {
       window.location.replace(`locaties.html?afspraakId=${afspraakId}`);
+    } else {
+      window.location.href = `terugroepen.html?afspraakId=${afspraakId}`;
     }
   }, 10000);
 };
