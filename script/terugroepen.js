@@ -3,7 +3,7 @@ let locatieTemi = 'Home base';
 
 const listenToButtons = () => {
   btnTerugroepen.addEventListener('click', () => {
-    state = true;
+    const state = true;
     window.location.href = `index.html?pagina=onderweg&afspraakId=${afspraakId}&return=${state}`;
   });
   btnHulp.addEventListener('click', () => {

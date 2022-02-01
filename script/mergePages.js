@@ -1,4 +1,4 @@
-let pagina, afspraakId, btnHulp, afspraakData;
+let pagina, afspraakId, btnHulp, returnState, afspraakData;
 
 const options = {
   keepalive: 60,
@@ -21,7 +21,7 @@ client.on('message', function (topic, message) {
   if (topic == 'B2F/arrived' && msg['status'] == 'arrived') {
     window.location.replace(`gearriveerd.html?afspraakId=${afspraakId}&return=${returnState}`);
   }
-  if (topic == 'B2F/help' && msg.status == "opgelost") {
+  if (topic == 'B2F/help' && msg.status == 'opgelost') {
     window.history.go(-2);
   }
 });
@@ -64,14 +64,13 @@ const mergePages = async () => {
     }); */
   } else if (pagina == 'onderweg') {
     document.querySelector('.js-text').textContent = 'Temi is onderweg...';
-    
   } else if (pagina == 'help_onderweg') {
     document.querySelector('.js-text').textContent = 'Er komt zo dadelijk iemand van het onthaal bij u...';
 
     // let pagina = document.getElementById('pagina');
     // pagina.classList.add('js-temp-click');
 
-    client.publish('F2B/help',  JSON.stringify({"bezoeker": afspraakData, "status": "in behandeling"}));
+    client.publish('F2B/help', JSON.stringify({ bezoeker: afspraakData, status: 'in behandeling' }));
 
     // let indexpage = document.querySelector('.js-temp-click');
     // indexpage.addEventListener('click', function () {

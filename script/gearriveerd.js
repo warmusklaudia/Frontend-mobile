@@ -19,8 +19,9 @@ function sendMessage() {
 
 const setTime = () => {
   setTimeout(function () {
-    if (returnState == true) {
-      window.location.replace(`locaties.html?afspraakId=${afspraakId}`);
+    if (returnState == 'true') {
+      console.log('return true going to locaties');
+      window.location.href = `locaties.html?afspraakId=${afspraakId}`;
     } else {
       window.location.href = `terugroepen.html?afspraakId=${afspraakId}`;
     }
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const params = new URLSearchParams(window.location.search);
   afspraakId = params.get('afspraakId');
   returnState = params.get('return');
+  console.log(returnState);
   listenToButton();
   sendMessage();
   setTime();
