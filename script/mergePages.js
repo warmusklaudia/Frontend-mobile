@@ -1,4 +1,4 @@
-let pagina, afspraakId, btnHulp;
+let pagina, afspraakId, btnHulp, afspraakData;
 
 const options = {
   keepalive: 60,
@@ -10,6 +10,7 @@ const client = mqtt.connect('ws://40.113.96.140:80', options);
 client.on('connect', function () {
   console.log('Connected to mqtt');
   client.subscribe('B2F/arrived');
+  client.subscribe('B2F/help');
 });
 
 client.on('message', function (topic, message) {
@@ -20,11 +21,17 @@ client.on('message', function (topic, message) {
   if (topic == 'B2F/arrived' && msg['status'] == 'arrived') {
     window.location.replace(`gearriveerd.html?afspraakId=${afspraakId}`);
   }
+  if (topic == 'B2F/help' && msg.status == "opgelost") {
+    window.history.go(-2);
+  }
 });
 
-const GetAfspraak = function () {
-  url = `https://bezoekersapi.azurewebsites.net/api/afspraken/${afspraakId}`;
-  handleData(url, GetLocatie, null, (method = 'GET'), (body = null));
+const get = (url) => fetch(url).then((r) => r.json());
+
+const GetAfspraak = async () => {
+  endpoint = `https://bezoekersapi.azurewebsites.net/api/afspraken/${afspraakId}`;
+  const response = await get(endpoint);
+  return response;
 };
 
 const GetLocatie = function (JsonObject) {
@@ -39,7 +46,9 @@ const listenToButton = () => {
   });
 };
 
-const mergePages = () => {
+const mergePages = async () => {
+  afspraakData = await GetAfspraak(afspraakId);
+
   if (pagina == 'volgen') {
     console.log('works');
     // onderstaande vervangt de text in index.html
@@ -54,7 +63,6 @@ const mergePages = () => {
       window.location.replace(`gearriveerd.html?afspraakId=${afspraakId}`);
     }); */
   } else if (pagina == 'onderweg') {
-    GetAfspraak(afspraakId);
     document.querySelector('.js-text').textContent = 'Temi is onderweg...';
 
     let pagina = document.getElementById('pagina');
@@ -70,10 +78,12 @@ const mergePages = () => {
     let pagina = document.getElementById('pagina');
     pagina.classList.add('js-temp-click');
 
-    let indexpage = document.querySelector('.js-temp-click');
-    indexpage.addEventListener('click', function () {
-      window.location.replace('index.html');
-    });
+    client.publish('F2B/help',  JSON.stringify({"bezoeker": afspraakData, "status": "in behandeling"}));
+
+    // let indexpage = document.querySelector('.js-temp-click');
+    // indexpage.addEventListener('click', function () {
+    //   window.location.replace('index.html');
+    // });
   } else {
     let pagina = document.getElementById('pagina');
     pagina.classList.add('js-temp-click');

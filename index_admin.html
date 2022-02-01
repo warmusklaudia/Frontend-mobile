@@ -25,6 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/mqtt@4.0.1/dist/mqtt.js"></script>
     <script src="script/admin.js"></script>
   </head>
   <body id="welkomscherm">
@@ -45,7 +46,7 @@
           </g>
         </svg>
       </div>
-      <div class="c-message">
+      <div class="c-message js-message">
         <p>Op dit moment heeft niemand hulp nodig</p>
       </div>
       <div class="c-robot__admin">
@@ -81,7 +82,7 @@
       </div>
       <div class="c-admin__buttons">
         <div class="c-button-flex">
-          <button class="c-button c-button__admin js-afspraken">Afspraken raadplegen</button>
+          <button class="c-button c-button__admin js-solved">Probleem Opgelost</button>
         </div>
         <div class="c-button-flex">
           <button class="c-button c-button__admin js-homebase">Stuur Temi naar <br> Homebase</button>
