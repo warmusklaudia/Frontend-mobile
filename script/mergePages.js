@@ -19,6 +19,8 @@ client.on('message', function (topic, message) {
   console.log(`Message: ${message.toString()} on Topic: ${topic}`);
 
   if (topic == 'B2F/arrived' && msg['status'] == 'arrived') {
+    let locatie = msg['locatie'];
+    client.publish('F2B/return', JSON.stringify({ locatie: locatie, GUID: afspraakId }));
     window.location.replace(`gearriveerd.html?afspraakId=${afspraakId}&return=${returnState}`);
   }
   if (topic == 'B2F/help' && msg.status == 'opgelost') {
@@ -64,7 +66,6 @@ const mergePages = async () => {
     }); */
   } else if (pagina == 'onderweg') {
     document.querySelector('.js-text').textContent = 'Temi is onderweg...';
-    GetAfspraak();
   } else if (pagina == 'help_onderweg') {
     document.querySelector('.js-text').textContent = 'Er komt zo dadelijk iemand van het onthaal bij u...';
 
