@@ -41,10 +41,6 @@ const getAfspraken = async () => {
   showAfspraken(afspraak);
 };
 
-// const getAfspraken = function () {
-//   handleData(`https://bezoekersapi.azurewebsites.net/api/afspraken/`, showAfspraken);
-// };
-
 const getAfspraak = async (afspraakId) => {
   const endpoint = `http://bezoekersapi.azurewebsites.net/api/afspraken/${afspraakId}`;
   const request = await fetch(`${endpoint}`);
@@ -54,9 +50,6 @@ const getAfspraak = async (afspraakId) => {
   // showAfspraken(data);
 };
 
-// const getAfspraak = function (idAfspraak) {
-//   handleData(`http://bezoekersapi.azurewebsites.net/api/afspraken/${idAfspraak}`, showAfspraken);
-// };
 //#endregion
 
 const listenToClickRemoveAfspraak = function () {
@@ -69,15 +62,12 @@ const listenToClickRemoveAfspraak = function () {
       fetch(`http://bezoekersapi.azurewebsites.net/api/afspraken/${id}`, {
         method: 'DELETE',
       })
-        .then((res) => res.json()) // or res.json()
+        .then((res) => res.json()) 
         .then((res) => console.log(res));
       getAfspraken();
       messageAfspraak.style.display = 'block';
     });
   }
-  // setTimeout(function () {
-  //   getAfspraken();
-  // }, 1000);
 };
 
 const listenToNavigation = () => {

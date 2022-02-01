@@ -14,7 +14,6 @@ client.on('connect', function () {
 const ChangeLocation = () => {
   let htmlString = ``;
   htmlString += `<p>Locatie: </br> ${locatie}</p> `;
-  console.log(htmlString);
   msg.innerHTML = htmlString;
 };
 

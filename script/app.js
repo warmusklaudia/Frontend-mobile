@@ -1,6 +1,5 @@
 let btnKleedkamer, btnSportscube, btnHulp, btnOnthaal;
 let json;
-// let code = 'af1b5fdd-3293-4f4c-bb38-a1890c882512';
 let response, afspraakId;
 
 const options = {
@@ -15,34 +14,17 @@ client.on('connect', function () {
 });
 
 const listenToButtons = async () => {
-  // let bezoekersData = await getVisitorData(code);
-  // console.log(bezoekersData);
-
   btnKleedkamer.addEventListener('click', () => {
     json = { locatie: 'onderweg naar kleedkamer' };
     changeLocation(json);
     console.log(json);
     window.location.href = `index.html?pagina=volgen&afspraakId=${afspraakId}`;
-
-    // voorlopig een sleep function
-    // sleep(5000).then(() => {
-    //   json = { locatie: 'kleedkamer' };
-    //   changeLocation(code, json);
-    //   console.log(json);
-    // });
   });
   btnSportscube.addEventListener('click', () => {
     json = { locatie: 'onderweg naar sportscube' };
     changeLocation(json);
     console.log(json);
     window.location.href = `index.html?pagina=volgen&afspraakId=${afspraakId}`;
-
-    // voorlopig een sleep function
-    // sleep(5000).then(() => {
-    //   json = { locatie: 'sportscube' };
-    //   changeLocation(code, json);
-    //   console.log(json);
-    // });
   });
   btnOnthaal.addEventListener('click', () => {
     json = { locatie: 'onderweg naar onthaal' };
@@ -64,20 +46,6 @@ const showResult = (queryResponse) => {
 };
 
 const changeLocation = (jsonObject) => {
-  // const putMethod = {
-  //   method: 'PUT', // Method itself
-  //   headers: {
-  //     'Content-type': 'application/json; charset=UTF-8', // Indicates the content
-  //   },
-  //   body: JSON.stringify(jsonObject), // We send data in JSON format
-  // };
-
-  // // make the HTTP put request using fetch api
-  // fetch(`https://bezoekersapi.azurewebsites.net/api/afspraken/${id}/locatie`, putMethod)
-  //   .then((response) => response.json())
-  //   .then((data) => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
-  //   .catch((err) => console.log(err)); // Do something with the error
-
   client.publish('F2B/locatie', JSON.stringify(json));
 };
 

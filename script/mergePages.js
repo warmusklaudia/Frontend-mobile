@@ -38,7 +38,6 @@ const GetAfspraak = async () => {
 
 const GetLocatie = function (JsonObject) {
   let locatie = JsonObject['locatie'];
-  console.log(locatie);
   client.publish('F2B/return', JSON.stringify({ locatie: locatie, GUID: afspraakId }));
 };
 
@@ -52,32 +51,16 @@ const mergePages = async () => {
   afspraakData = await GetAfspraak(afspraakId);
 
   if (pagina == 'volgen') {
-    console.log('works');
     // onderstaande vervangt de text in index.html
     document.querySelector('.js-text').textContent = 'Volg Temi...';
 
-    // onderstaande tijdelijk om te testen
-    /* let pagina = document.getElementById('pagina');
-    pagina.classList.add('js-temp-click');
-
-    let indexpage = document.querySelector('.js-temp-click');
-    indexpage.addEventListener('click', function () {
-      window.location.replace(`gearriveerd.html?afspraakId=${afspraakId}`);
-    }); */
   } else if (pagina == 'onderweg') {
     document.querySelector('.js-text').textContent = 'Temi is onderweg...';
   } else if (pagina == 'help_onderweg') {
     document.querySelector('.js-text').textContent = 'Er komt zo dadelijk iemand van het onthaal bij u...';
 
-    // let pagina = document.getElementById('pagina');
-    // pagina.classList.add('js-temp-click');
-
     client.publish('F2B/help', JSON.stringify({ bezoeker: afspraakData, status: 'in behandeling' }));
 
-    // let indexpage = document.querySelector('.js-temp-click');
-    // indexpage.addEventListener('click', function () {
-    //   window.location.replace('index.html');
-    // });
   } else {
     let pagina = document.getElementById('pagina');
     pagina.classList.add('js-temp-click');
@@ -96,8 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
   afspraakId = params.get('afspraakId');
   returnState = params.get('return');
   btnHulp = document.querySelector('.js-help');
-  console.log(pagina);
-  console.log(afspraakId);
   listenToButton();
   mergePages();
 });

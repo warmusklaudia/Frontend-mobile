@@ -20,7 +20,6 @@ function sendMessage() {
 const setTime = () => {
   setTimeout(function () {
     if (returnState == 'true') {
-      console.log('return true going to locaties');
       window.location.href = `locaties.html?afspraakId=${afspraakId}`;
     } else {
       window.location.href = `terugroepen.html?afspraakId=${afspraakId}`;
