@@ -19,7 +19,7 @@ client.on('message', function (topic, message) {
   console.log(`Message: ${message.toString()} on Topic: ${topic}`);
 
   if (topic == 'B2F/arrived' && msg['status'] == 'arrived') {
-    window.location.replace(`gearriveerd.html?afspraakId=${afspraakId}`);
+    window.location.replace(`gearriveerd.html?afspraakId=${afspraakId}&return=${returnState}`);
   }
   if (topic == 'B2F/help' && msg.status == "opgelost") {
     window.history.go(-2);
@@ -64,14 +64,7 @@ const mergePages = async () => {
     }); */
   } else if (pagina == 'onderweg') {
     document.querySelector('.js-text').textContent = 'Temi is onderweg...';
-
-    let pagina = document.getElementById('pagina');
-    pagina.classList.add('js-temp-click');
-
-    let indexpage = document.querySelector('.js-temp-click');
-    indexpage.addEventListener('click', function () {
-      window.location.replace(`locaties.html?afspraakId=${afspraakId}`);
-    });
+    
   } else if (pagina == 'help_onderweg') {
     document.querySelector('.js-text').textContent = 'Er komt zo dadelijk iemand van het onthaal bij u...';
 
@@ -100,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const params = new URLSearchParams(window.location.search);
   pagina = params.get('pagina');
   afspraakId = params.get('afspraakId');
+  returnState = params.get('return');
   btnHulp = document.querySelector('.js-help');
   console.log(pagina);
   console.log(afspraakId);

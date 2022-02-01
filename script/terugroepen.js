@@ -1,11 +1,10 @@
 let btnTerugroepen, btnHulp, afspraakId, htmlMess;
 let locatieTemi = 'Home base';
 
-
-
 const listenToButtons = () => {
   btnTerugroepen.addEventListener('click', () => {
-    window.location.href = `index.html?pagina=onderweg&afspraakId=${afspraakId}`;
+    state = true;
+    window.location.href = `index.html?pagina=onderweg&afspraakId=${afspraakId}&return=${state}`;
   });
   btnHulp.addEventListener('click', () => {
     window.location.href = `help_bevestigen.html?afspraakId=${afspraakId}`;
