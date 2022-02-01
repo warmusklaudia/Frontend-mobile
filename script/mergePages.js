@@ -68,8 +68,8 @@ const mergePages = async () => {
   } else if (pagina == 'help_onderweg') {
     document.querySelector('.js-text').textContent = 'Er komt zo dadelijk iemand van het onthaal bij u...';
 
-    let pagina = document.getElementById('pagina');
-    pagina.classList.add('js-temp-click');
+    // let pagina = document.getElementById('pagina');
+    // pagina.classList.add('js-temp-click');
 
     client.publish('F2B/help',  JSON.stringify({"bezoeker": afspraakData, "status": "in behandeling"}));
 
