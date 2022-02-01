@@ -64,6 +64,7 @@ const mergePages = async () => {
     }); */
   } else if (pagina == 'onderweg') {
     document.querySelector('.js-text').textContent = 'Temi is onderweg...';
+    GetAfspraak();
   } else if (pagina == 'help_onderweg') {
     document.querySelector('.js-text').textContent = 'Er komt zo dadelijk iemand van het onthaal bij u...';
 
